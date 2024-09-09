@@ -1,0 +1,7 @@
+google_api_python_client==2.144.0
+google_search_results==2.4.2
+langchain==0.2.16
+langchain_google_genai==1.0.10
+PyPDF2==3.0.1
+python_pptx==1.0.2
+streamlit==1.33.0
