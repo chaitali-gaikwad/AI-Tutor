@@ -8,27 +8,32 @@ from googleapiclient.discovery import build
 from serpapi import GoogleSearch
 import time
 import PyPDF2
+import os
 
 # Streamlit App Title
 st.title("AI Tutor")
 
-# Function to read API keys from config file
-def load_api_keys(config_file='config.conf'):
-    api_keys = {}
-    with open(config_file, 'r') as f:
-        for line in f:
-            if '=' in line:
-                key, value = line.strip().split('=')
-                api_keys[key] = value
-    return api_keys
+# Function to read API keys from the config file
+def load_config(file_path):
+    config = {}
+    with open(file_path, 'r') as file:
+        for line in file:
+            if line.strip() and '=' in line:
+                key, value = line.strip().split('=', 1)
+                config[key] = value
+    return config
 
-# Load API keys from config.txt
-api_keys = load_api_keys()
-
-# Use the keys in your application
-gemini_api_key = api_keys['GEMINI_API_KEY']
-youtube_api_key = api_keys['YOUTUBE_API_KEY']
-serpapi_api_key = api_keys['SERPAPI_API_KEY']
+# Load configuration
+config_file_path = 'C:\Users\admin\Desktop\Chaitali\Startup2025\AI-Tutor\config.conf'
+if os.path.exists(config_file_path):
+    config = load_config(config_file_path)
+    # Extract API keys
+    gemini_api_key = config.get('GEMINI_API_KEY')
+    youtube_api_key = config.get('YOUTUBE_API_KEY')
+    serpapi_api_key = config.get('SERPAPI_API_KEY')
+else:
+    st.error("Configuration file not found.")
+    st.stop()  # Stop the app if config file is not found
 
 
 # Extract text from PPTX file
