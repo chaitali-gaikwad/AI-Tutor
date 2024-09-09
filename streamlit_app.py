@@ -24,7 +24,7 @@ def load_api_keys(config_file='config.conf'):
 
 # Load API keys from config.txt
 api_keys = load_api_keys()
-print(api_keys)
+
 # Use the keys in your application
 gemini_api_key = api_keys['GEMINI_API_KEY']
 youtube_api_key = api_keys['YOUTUBE_API_KEY']
