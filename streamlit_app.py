@@ -13,7 +13,7 @@ import PyPDF2
 st.title("AI Tutor")
 
 # Function to read API keys from config file
-def load_api_keys(config_file='config.txt'):
+def load_api_keys(config_file='config.conf'):
     api_keys = {}
     with open(config_file, 'r') as f:
         for line in f:
