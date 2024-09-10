@@ -12,24 +12,6 @@ import PyPDF2
 # Streamlit App Title
 st.title("AI Tutor")
 
-# Function to read API keys from config file
-# def load_api_keys(config_file='streamlit\secrets.toml'):
-#     api_keys = {}
-#     with open(config_file, 'r') as f:
-#         for line in f:
-#             if '=' in line:
-#                 key, value = line.strip().split('=')
-#                 api_keys[key] = value
-#     return api_keys
-
-# # Load API keys from config.txt
-# api_keys = load_api_keys()
-    
-# # Use the keys in your application
-# gemini_api_key = api_keys['GEMINI_API_KEY']
-# youtube_api_key = api_keys['YOUTUBE_API_KEY']
-# serpapi_api_key = api_keys['SERPAPI_API_KEY']
-
 gemini_api_key = st.secrets["general"]["gemini_api_key"]
 youtube_api_key = st.secrets["general"]["youtube_api_key"]
 serpapi_api_key = st.secrets["general"]["serpapi_api_key"]
